@@ -2,6 +2,8 @@
 //  LineUp.java       Author: Lewis/Loftus/Cocking
 //
 //  Demonstrates the use of a graphical object.
+// this is my City that "holds" the buildings, trees, cars, etc
+// draws then calls refresh to change display (animate)
 //********************************************************************
 
     import java.awt.*;
@@ -13,13 +15,14 @@
 
 public class LineUp extends JComponent //implements Runnable
 {
-   private final int APPLET_WIDTH = 400;    //Size constants
-   private final int APPLET_HEIGHT = 150;
+   //private final int APPLET_WIDTH = 400;    //Size constants
+   //private final int APPLET_HEIGHT = 150;
    private final int HEIGHT_MIN = 100;
    private final int VARIANCE = 45;
    Random generator = new Random();
    //Graphics page;
-
+   // stickFigure = building
+   
    //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
    private StickFigure figure1,figure2, figure3, figure4;
    private Floor ground;
@@ -37,11 +40,16 @@ public class LineUp extends JComponent //implements Runnable
       h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
       h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
 
-
-      figure1 = new StickFigure (100, 150, Color.red, h1);
+      //0,0 is upper left
+      // +x moves object to right, +y moves object down
+      
+      figure1 = new StickFigure (140, 150, Color.red, h1);
       //x, y, color, height
+      //(0,0) coordinate starts in the top left corner
+      // coordinates push it around
+      
       figure2 = new StickFigure(150, 150, Color.green, h2);
-      figure3 = new StickFigure(200, 150, Color.cyan, h3);
+      figure3 = new StickFigure(200, 250, Color.cyan, h3);
       figure4 = new StickFigure(250, 150, Color.yellow, h4);
 
       ground = new Floor();
@@ -70,7 +78,7 @@ public class LineUp extends JComponent //implements Runnable
         Graphics2D page = (Graphics2D) g;
        //page = this.page;
       ground.draw(page);
-      figure1.draw (page);
+      figure1.draw (page); //draw the buildings on top of the background
       figure2.draw (page);
       figure3.draw (page);
       figure4.draw (page);
@@ -110,6 +118,7 @@ public class LineUp extends JComponent //implements Runnable
        //ground.setX(running);
        //Thread t1 = new Thread(ground);
        //t1.start();
+//refreshes canvas
 
        repaint();
 

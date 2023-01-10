@@ -6,7 +6,7 @@
  * @version (a version number or a date)
  */
 import java.util.*;
-public class Apple implements Runnable
+public class Apple implements Runnable // must implement it to make moving things
 {
     // instance variables - replace the example below with your own
     String name;
