@@ -27,7 +27,8 @@ public class LineUp extends JComponent //implements Runnable
    private StickFigure figure1,figure2, figure3, figure4;
    private Floor ground;
    private int running = 0;
-
+   private Window myImage;
+   
    //-----------------------------------------------------------------
    //  Creates several stick figures with varying characteristics.
    //-----------------------------------------------------------------
@@ -51,16 +52,22 @@ public class LineUp extends JComponent //implements Runnable
       figure2 = new StickFigure(150, 150, Color.green, h2);
       figure3 = new StickFigure(200, 250, Color.cyan, h3);
       figure4 = new StickFigure(250, 150, Color.yellow, h4);
-
+    
+      myImage = new Window(200, 100, Color.yellow);
+      
+      
+      
       ground = new Floor();
 
       Thread t1 = new Thread(ground);
       t1.start();
       Thread t2 = new Thread(figure2);
       t2.start();
-      //Thread t3 = new Thread(figure3);
-      //t3.start();
-
+      Thread t3 = new Thread(figure3);
+      t3.start();
+      Thread t4 = new Thread(myImage);
+      t4.start();
+    
 
       //setBackground (Color.black); //sets the color of background
       //setSize (APPLET_WIDTH, APPLET_HEIGHT); //Sets up applet window
@@ -83,6 +90,7 @@ public class LineUp extends JComponent //implements Runnable
       figure3.draw (page);
       figure4.draw (page);
       //ground.draw(page);
+      myImage.draw(page);
 
       //Thread t1 = new Thread(ground);
       //t1.start();
