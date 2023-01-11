@@ -51,7 +51,7 @@ public class CityscapeViewer
         {
             row.nextFrame();
             // you may need to adjust to make city look better
-            Thread.sleep( 1000 ); // in milliseconds. 1000 millisec = 1 second
+            Thread.sleep( 100 ); // in milliseconds. 1000 millisec = 1 second
         }
         
     }
