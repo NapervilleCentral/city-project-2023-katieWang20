@@ -81,7 +81,8 @@ public class StickFigure extends JComponent implements Runnable
        //-----------------------------------------------------------------
        //  Draws this figure relative to baseX, baseY, and height.
        //-----------------------------------------------------------------
-       public void draw (Graphics2D page)
+       public
+       void draw (Graphics2D page)
        {
           int top = baseY - height;  // top of head
                                      //y needs to move, not height.

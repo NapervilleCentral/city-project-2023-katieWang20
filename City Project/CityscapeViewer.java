@@ -1,6 +1,10 @@
 import javax.swing.JFrame;
 import java.awt.*;
 
+ import java.awt.Graphics;
+    import java.awt.Graphics2D;
+    import javax.swing.JComponent;
+    
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
@@ -33,7 +37,7 @@ public class CityscapeViewer
         int h2 = 100 + (int)(Math.random()*45);
         
         // a frame contains a single component; create the Cityscape component and add it to the frame
-        CityscapeComponent component = new CityscapeComponent();
+        Cityscape component = new Cityscape();
         
         
         
@@ -45,12 +49,17 @@ public class CityscapeViewer
         //  component.
         frame.setVisible(true);
         
+        LineUp row = new LineUp();
+        
+        frame.add(row);
         // animate the cityscape
+        /*
         for( int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++ )
         {
-            row.nextFrame();
+            //row.nextFrame();
             Thread.sleep( 100 );
         }
+        */
         
     }
 

@@ -37,6 +37,7 @@ public class CityscapeViewer
         CityscapeComponent component = new CityscapeComponent();
         
         
+
         LineUp row = new LineUp();
         //frame.add(component);
         frame.add(row);
