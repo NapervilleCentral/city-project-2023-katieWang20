@@ -12,16 +12,16 @@ import java.awt.*;
     import java.awt.Graphics2D;
     import javax.swing.JComponent;
     
-public class Ground extends JComponent 
+public class Background extends JComponent 
 {
     private int x, y, w, h;
-    
-    public Ground(){
-        x = 0;
-        y = 200;
-        w = 400;
-        h = 80;
-        
+    private Color color;
+    public Background(int x, int y, int w,int h, Color color){
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.color = color;
     }
     public void paintComponent(Graphics g)
     {
@@ -30,16 +30,17 @@ public class Ground extends JComponent
         // invoke the draw method
         // ...
         draw(g2);
-
+        
 
     }
     
     public void draw(Graphics2D page){
-        page.setColor(Color.gray);
+        page.setColor(color);
         page.fillRect(x, y, w, h); 
         
     
     }
+    
     
 
 }
