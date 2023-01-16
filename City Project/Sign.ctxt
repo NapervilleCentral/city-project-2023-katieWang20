@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Sign
+comment1.params=word\ color\ x\ y
+comment1.target=Sign(java.lang.String,\ java.awt.Color,\ int,\ int)
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment3.params=page
+comment3.target=void\ draw(java.awt.Graphics2D)
+numComments=4
