@@ -30,6 +30,14 @@ public class LineUp extends JComponent
         theater = new Building (400, 120, 100, 80, new Color(193, 154, 107));
         theaterSign = new Sign("THEATER", Color.black, 405, 140);
         //window = new Window(155, 50, Color.yellow);
+        //                  x start, x end, y start, y end, woidth, height, x gap, y gap, color
+        window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
+        //x+=15;
+       
+            
+        Thread t4 = new Thread(window);
+        t4.start();
+            
         
     }
     
@@ -47,36 +55,21 @@ public class LineUp extends JComponent
         theaterSign.draw(page); 
 
         
-        //window.draw(page);
+        window.draw(page);
         
         
         
-        //Thread t4 = new Thread(window);
+        
         //t4.start();
         
         for (int x = 0; x <= 800; x+=80){
             roadLines = new Background (x, 235, 10, 5, Color.yellow);
             roadLines.draw(page);
         }
+         
         
-        
-        for (int x = 155, y = 50; y <= 185; ) {
-            window = new Window(x, y, Color.yellow);
-            x+=15;
-            window.draw(page);
-            Thread t4 = new Thread(window);
-            t4.start();
-            if (x ==  230){
-                y+=20;
-                x = 155;
-            }
-            
-            //window.run();
-            
-          
-        }
-        
-        
+        //window.draw(page);
+      
         hotel.draw(page);
         
         // use for loop to draw HOTEL sign vertically

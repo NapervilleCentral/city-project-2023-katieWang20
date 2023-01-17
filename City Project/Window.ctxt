@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Window
-comment1.params=x\ y\ userColor
-comment1.target=Window(int,\ int,\ java.awt.Color)
+comment1.params=xStart\ xEnd\ yStart\ yEnd\ w\ h\ xGap\ yGap\ userColor
+comment1.target=Window(int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ java.awt.Color)
 comment2.params=g
 comment2.target=void\ paintComponent(java.awt.Graphics)
 comment3.params=page

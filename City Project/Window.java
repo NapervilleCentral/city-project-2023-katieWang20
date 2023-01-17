@@ -11,18 +11,30 @@
     import java.awt.Graphics;
     import java.awt.Graphics2D;
     import javax.swing.JComponent;
+    import java.util.Random;
     // creates windows
     
 public class Window extends JComponent implements Runnable
 {
     private Color myColor;
-    private int x, y;
+    private int w, h;
+    private Random rand = new Random();
+    private int xStart, xEnd, yStart, yEnd;
+    private int xGap, yGap;
     //array/list
     // instance variables - replace the example below with your own
-    public Window(int x, int y, Color userColor){
+    
+    public Window(int xStart, int xEnd, int yStart, int yEnd, int w, int h, int xGap, int yGap, Color userColor){
         myColor = userColor;
-        this.x = x;
-        this.y = y;
+        this.xStart = xStart;
+        this.yStart = yStart;
+        this.xEnd = xEnd;
+        this.yEnd = yEnd;
+        this.w = w;
+        this.h = h;
+        this.xGap = xGap;
+        this.yGap = yGap;
+        
     }
     
     
@@ -40,8 +52,23 @@ public class Window extends JComponent implements Runnable
     
     public void draw(Graphics2D page){
         page.setColor(myColor);
-        page.fillRect(x, y, 10, 10);
-    
+        //page.fillRect(x, y, 10, 10);
+        //xstart = 155, x end  = 230, y start = 50, y end = 185
+        for (int x = xStart, y = yStart; y <= yEnd; ) {
+            page.fillRect(x, y, w, h);
+            x+=xGap;
+            // gaps in between windows
+            
+            if (x ==  xEnd){
+                y+=yGap;
+                x = xStart;
+            }
+            
+            //w
+            //Thread t4 = new Thread(window);
+            //t4.start();
+          
+        }
             
     }
     
@@ -54,7 +81,7 @@ public class Window extends JComponent implements Runnable
                 myColor = Color.yellow;
                 
             try{
-                Thread.sleep(17);
+                Thread.sleep(rand.nextInt(20));
             }catch(Exception e){
                 System.out.println(myColor.black);
             }
