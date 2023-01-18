@@ -1,11 +1,10 @@
 
 /**
- * Write a description of class Sign here.
+ * Write a description of class Autos here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-
 import java.awt.*;
     import java.util.*;
     
@@ -13,22 +12,22 @@ import java.awt.*;
     import java.awt.Graphics2D;
     import javax.swing.JComponent;
     
-public class Sign extends JComponent
+public class Auto extends JComponent
 {
-    private String word;
+
     private Color color;
-    int x, y;
-    int size;
-    // instance variables - replace the example below with your own
-    public Sign(String word,Color color, int size, int x, int y){
-        this.word = word;
-        this.color = color;
+    int x, y, w, h;
+    
+    public Auto(int x, int y, int w, int h, Color color)
+    {
         this.x = x;
         this.y = y;
-        this.size = size;
+        this.w = w;
+        this.h = h;
+        this.color = color;
     }
     
-    public void paintComponent(Graphics g)
+     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
 
@@ -40,11 +39,13 @@ public class Sign extends JComponent
     }
     
     public void draw(Graphics2D page){
-        Font font = new Font ("Neoncity", 1, size);
-        page.setFont(font);
         page.setColor(color);
-        page.drawString(word, x, y); 
-        
+        page.fillRect(x, y, w, h);
+        page.setColor(Color.black);
+        page.fillOval(x-5, y+1, 10, 10);
+        page.fillOval(x+5, y +1, 10, 10);
     
     }
+    
+    
 }

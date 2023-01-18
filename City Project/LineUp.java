@@ -17,27 +17,32 @@ public class LineUp extends JComponent
 {
     // instance variables - replace the example below with your own
     private Background road, greenGround, sky, roadLines;
-    private Building hotel, build1, build2, build3, theater;
+    private Building hotel, build1, build2, waffles, theater;
     private Window window;
-    Sign theaterSign;
-    String hotelStr = "H O T E L";
+    Sign theaterSign, hotelSign;
+    String hotelStr = "HOTEL";
+    
+    private Auto car, bus;
+    
     public LineUp(){
         road = new Background(0, 210, 800, 50, Color.gray);
         greenGround = new Background(0, 180, 800, 100, new Color(0, 100 , 0));
         sky = new Background (0, 0, 800, 800, new Color(137, 207, 240));
         build1 = new Building(150, 45, 80, 150, Color.black); 
+        build2 = new Building(350, 10, 90, 180, Color.black); 
         hotel = new Building (20, 120, 150, 80, Color.darkGray); 
         theater = new Building (400, 120, 100, 80, new Color(193, 154, 107));
-        theaterSign = new Sign("THEATER", Color.black, 405, 140);
+        theaterSign = new Sign("THEATER", Color.black, 20, 405, 140);
         //window = new Window(155, 50, Color.yellow);
         //                  x start, x end, y start, y end, woidth, height, x gap, y gap, color
         window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
         //x+=15;
-       
-            
+        
+        hotelSign = new Sign(hotelStr, Color.black, 35, 35, 120);
         Thread t4 = new Thread(window);
         t4.start();
-            
+        
+        car = new Auto (0, 210, 15, 10, Color.blue );
         
     }
     
@@ -49,13 +54,15 @@ public class LineUp extends JComponent
         greenGround.draw(page);
         road.draw(page);
         build1.draw(page);
-        
+        build2.draw(page);
         
         theater.draw(page);
         theaterSign.draw(page); 
 
         
         window.draw(page);
+        
+        car.draw(page);
         
         
         
@@ -71,7 +78,7 @@ public class LineUp extends JComponent
         //window.draw(page);
       
         hotel.draw(page);
-        
+        hotelSign.draw(page);
         // use for loop to draw HOTEL sign vertically
     }
         
@@ -92,7 +99,7 @@ public class LineUp extends JComponent
    }
 
    public void run()
-   {
+   {    
     }
     
 }
