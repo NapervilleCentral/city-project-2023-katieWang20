@@ -1,4 +1,4 @@
-
+        
 /**
  * Write a description of class Autos here.
  *
@@ -17,16 +17,16 @@ public class Auto extends JComponent implements Runnable
 
     private Color color;
     private int x, y, w, h;
-    private int choice;
+    private int d; // 0 for go right, 1 for go left
     private Random rand = new Random();
-    public Auto(int x, int y, Color color, int choice)
+    public Auto(int x, int y, Color color, int direction)
     {
         this.x = x;
         this.y = y;
         this.w = 25;
         this.h = 15;
         this.color = color;
-        this.choice = choice;
+        d = direction;
     }
     
      public void paintComponent(Graphics g)
@@ -42,24 +42,14 @@ public class Auto extends JComponent implements Runnable
     
     public void draw(Graphics2D page){
         page.setColor(color);
-        if (choice == 1){
+        
             
             page.fillRect(x, y, w, h);
             page.fillRect(x-5, y+5, w+10, h-5);
             page.setColor(Color.black);
             page.fillOval(x-7, y+8, 10, 10);
             page.fillOval(x+19, y +8, 10, 10);
-        }else if (choice == 2){
-            
-            w = 40;
-            h = 25;
-            page.fillRect(x, y, w, h);
-            
-            page.setColor(Color.black);
-            page.fillOval(x-17, y+18, 10, 10);
-            page.fillOval(x+35, y +18, 10, 10);
         
-        }
     
     }
     
@@ -69,9 +59,17 @@ public class Auto extends JComponent implements Runnable
         
         while (true){
             if (running % 2 == 0 ){
-                x = x+randSpeed;
-                if (x == 600){
-                    x  = 0;
+                if (d == 0){
+                    x = x+randSpeed;
+                    if (x >= 600){
+                        x  = 0;
+                    }
+                }else if (d == 1){
+                    
+                    x-= randSpeed;
+                        if (x <=0){
+                            x = 600;
+                        }
                 }
             }else{
                 ;

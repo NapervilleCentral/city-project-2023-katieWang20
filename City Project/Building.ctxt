@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=Building
-comment1.params=x\ y\ w\ h\ color
-comment1.target=Building(int,\ int,\ int,\ int,\ java.awt.Color)
+comment1.params=x\ y\ w\ h\ initColor\ nighColor
+comment1.target=Building(int,\ int,\ int,\ int,\ java.awt.Color,\ java.awt.Color)
 comment2.params=g
 comment2.target=void\ paintComponent(java.awt.Graphics)
 comment3.params=page
 comment3.target=void\ draw(java.awt.Graphics2D)
-numComments=4
+comment4.params=
+comment4.target=void\ run()
+numComments=5

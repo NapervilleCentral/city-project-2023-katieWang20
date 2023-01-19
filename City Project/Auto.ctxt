@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Auto
-comment1.params=x\ y\ color\ choice
+comment1.params=x\ y\ color\ direction
 comment1.target=Auto(int,\ int,\ java.awt.Color,\ int)
 comment2.params=g
 comment2.target=void\ paintComponent(java.awt.Graphics)

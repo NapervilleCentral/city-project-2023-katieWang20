@@ -64,6 +64,7 @@ public class Window extends JComponent implements Runnable
                 x = xStart;
             }
             
+            
             //w
             //Thread t4 = new Thread(window);
             //t4.start();
@@ -82,7 +83,7 @@ public class Window extends JComponent implements Runnable
                 myColor = new Color (200, 200, 200);
                 
             try{
-                Thread.sleep(5000);
+                Thread.sleep(rand.nextInt(20));
             }catch(Exception e){
                 System.out.println(myColor.black);
             }
