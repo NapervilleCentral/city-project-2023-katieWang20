@@ -13,16 +13,17 @@ import java.awt.*;
     import java.awt.Graphics2D;
     import javax.swing.JComponent;
     
-public class Sign extends JComponent
+public class Sign extends JComponent implements Runnable
 {
     private String word;
-    private Color color;
+    private Color initColor, finColor;
     int x, y;
     int size;
     // instance variables - replace the example below with your own
-    public Sign(String word,Color color, int size, int x, int y){
+    public Sign(String word,Color initColor, Color finColor, int size, int x, int y){
         this.word = word;
-        this.color = color;
+        this.initColor = initColor;
+        this.finColor = finColor;
         this.x = x;
         this.y = y;
         this.size = size;
@@ -42,9 +43,16 @@ public class Sign extends JComponent
     public void draw(Graphics2D page){
         Font font = new Font ("Neoncity", 1, size);
         page.setFont(font);
-        page.setColor(color);
+        page.setColor(initColor);
         page.drawString(word, x, y); 
         
     
     }
+    
+    public void run(){
+       
+        
+        
+    }
+    
 }

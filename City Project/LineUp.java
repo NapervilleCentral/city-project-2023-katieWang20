@@ -16,7 +16,8 @@
 public class LineUp extends JComponent
 {
     // instance variables - replace the example below with your own
-    private Background road, greenGround, sky, roadLines;
+    private Background road, greenGround, roadLines;
+    private Sky sky;
     private Building hotel, build1, build2, waffles, theater;
     private Window window;
     Sign theaterSign, hotelSign;
@@ -27,23 +28,33 @@ public class LineUp extends JComponent
     public LineUp(){
         road = new Background(0, 210, 800, 50, Color.gray);
         greenGround = new Background(0, 180, 800, 100, new Color(0, 100 , 0));
-        sky = new Background (0, 0, 800, 800, new Color(137, 207, 240));
+        
         build1 = new Building(150, 45, 80, 150, Color.black); 
         build2 = new Building(350, 10, 90, 180, Color.black); 
         hotel = new Building (20, 120, 150, 80, Color.darkGray); 
         theater = new Building (400, 120, 100, 80, new Color(193, 154, 107));
-        theaterSign = new Sign("THEATER", Color.black, 20, 405, 140);
+        theaterSign = new Sign("THEATER", Color.black, Color.red,20, 405, 140);
         //window = new Window(155, 50, Color.yellow);
         //                  x start, x end, y start, y end, woidth, height, x gap, y gap, color
         window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
         //x+=15;
         
-        hotelSign = new Sign(hotelStr, Color.black, 35, 35, 120);
-        Thread t4 = new Thread(window);
+        hotelSign = new Sign(hotelStr, Color.black, Color.pink,  35, 35, 120);
+        Thread t1 = new Thread(window);
+        t1.start();
+        
+        //car = new Auto (0, 210, 15, 10, Color.blue );
+        car = new Auto(0, 210, Color.blue,1);
+        Thread t2 = new Thread(car);
+        t2.start();
+        
+        bus = new Auto (0, 220, Color.red, 2);
+        Thread t3 = new Thread(bus);
+        t3.start();
+        
+        sky = new Sky ();
+        Thread t4 = new Thread(sky);
         t4.start();
-        
-        car = new Auto (0, 210, 15, 10, Color.blue );
-        
     }
     
     public void paintComponent (Graphics g){
@@ -65,7 +76,7 @@ public class LineUp extends JComponent
         car.draw(page);
         
         
-        
+        bus.draw(page);
         
         //t4.start();
         
