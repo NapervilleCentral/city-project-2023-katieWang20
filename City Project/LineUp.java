@@ -19,9 +19,9 @@ public class LineUp extends JComponent
     private Background road, greenGround, roadLines;
     private Sky sky;
     private Building hotel, build1, build2, waffles, theater;
-    private Window window;
+    private Window window, hotelWindow;
     Sign theaterSign, hotelSign;
-    String hotelStr = "HOTEL";
+    
     
     private Auto car, bus;
     
@@ -33,15 +33,22 @@ public class LineUp extends JComponent
         build2 = new Building(350, 10, 90, 180, Color.black); 
         hotel = new Building (20, 120, 150, 80, Color.darkGray); 
         theater = new Building (400, 120, 100, 80, new Color(193, 154, 107));
-        theaterSign = new Sign("THEATER", Color.black, Color.red,20, 405, 140);
+        theaterSign = new Sign("THEATER", Color.black, new Color(210, 39, 48),20, 405, 140);
         //window = new Window(155, 50, Color.yellow);
         //                  x start, x end, y start, y end, woidth, height, x gap, y gap, color
         window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
+        hotelWindow = new Window (30, 155,   130,      185,    10,     10,    20,   25,     Color.yellow);            
         //x+=15;
         
-        hotelSign = new Sign(hotelStr, Color.black, Color.pink,  35, 35, 120);
+        
+        hotelSign = new Sign("HOTEL", Color.black, new Color(255, 16, 240),  35, 35, 120);
+        Thread t0 = new Thread(hotelSign);
+        t0.start();
+        
         Thread t1 = new Thread(window);
         t1.start();
+        
+        
         
         //car = new Auto (0, 210, 15, 10, Color.blue );
         car = new Auto(0, 210, Color.blue,1);
@@ -55,6 +62,10 @@ public class LineUp extends JComponent
         sky = new Sky ();
         Thread t4 = new Thread(sky);
         t4.start();
+        
+        Thread t5 = new Thread(hotelWindow);
+        t5.start();
+        
     }
     
     public void paintComponent (Graphics g){
@@ -86,10 +97,12 @@ public class LineUp extends JComponent
         }
          
         
+        
         //window.draw(page);
       
         hotel.draw(page);
         hotelSign.draw(page);
+        hotelWindow.draw(page);
         // use for loop to draw HOTEL sign vertically
     }
         

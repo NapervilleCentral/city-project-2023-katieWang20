@@ -59,7 +59,7 @@ public class Window extends JComponent implements Runnable
             x+=xGap;
             // gaps in between windows
             
-            if (x ==  xEnd){
+            if (x >=  xEnd){
                 y+=yGap;
                 x = xStart;
             }
@@ -76,12 +76,13 @@ public class Window extends JComponent implements Runnable
         int running = 0;
         while (true){
             if (running % 2 == 0 )
-                myColor = new Color (200, 200, 200);
-            else
                 myColor = Color.yellow;
                 
+            else
+                myColor = new Color (200, 200, 200);
+                
             try{
-                Thread.sleep(rand.nextInt(20));
+                Thread.sleep(5000);
             }catch(Exception e){
                 System.out.println(myColor.black);
             }

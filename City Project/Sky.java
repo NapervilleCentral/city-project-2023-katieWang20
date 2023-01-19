@@ -56,7 +56,7 @@ public class Sky extends JComponent implements Runnable
         while (true){
             if (running % 2 == 0){
                 
-                skyColor = new Color(15, 15, 70);
+                skyColor = new Color(25,12,39);
                 
         
             }else{

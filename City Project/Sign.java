@@ -7,21 +7,22 @@
  */
 
 import java.awt.*;
-    import java.util.*;
+import java.util.*;
     
-    import java.awt.Graphics;
-    import java.awt.Graphics2D;
-    import javax.swing.JComponent;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JComponent;
     
 public class Sign extends JComponent implements Runnable
 {
     private String word;
-    private Color initColor, finColor;
+    private Color color, initColor, finColor;
     int x, y;
     int size;
     // instance variables - replace the example below with your own
     public Sign(String word,Color initColor, Color finColor, int size, int x, int y){
         this.word = word;
+        color = initColor;
         this.initColor = initColor;
         this.finColor = finColor;
         this.x = x;
@@ -43,14 +44,32 @@ public class Sign extends JComponent implements Runnable
     public void draw(Graphics2D page){
         Font font = new Font ("Neoncity", 1, size);
         page.setFont(font);
-        page.setColor(initColor);
+        page.setColor(color);
         page.drawString(word, x, y); 
         
     
     }
     
     public void run(){
-       
+       int running = 0;
+       while (true){
+            if (running % 2 == 0){
+                
+                color = finColor;
+                
+        
+            }else{
+                color = initColor;
+            }
+            
+            try{
+                Thread.sleep(5000);
+            }catch(Exception e){
+                System.out.println("iuu");
+            }
+            running++;
+        }
+        
         
         
     }
