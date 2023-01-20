@@ -65,10 +65,7 @@ public class Window extends JComponent implements Runnable
             }
             
             
-            //w
-            //Thread t4 = new Thread(window);
-            //t4.start();
-          
+            
         }
             
     }
