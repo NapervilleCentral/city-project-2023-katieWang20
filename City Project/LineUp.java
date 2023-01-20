@@ -20,7 +20,7 @@ public class LineUp extends JComponent
     private Sky sky;
     private Building hotel, build1, build2, waffles, theater;
     private Window window, hotelWindow;
-    Sign theaterSign, hotelSign;
+    Sign theaterSign, hotelSign, waffleSign;
     
     
     private Auto car, car2;
@@ -34,7 +34,11 @@ public class LineUp extends JComponent
         hotel = new Building (20, 120, 150, 80, Color.gray, Color.darkGray); 
         theater = new Building (400, 120, 100, 80, new Color(193, 154, 107), new Color (20, 15, 6));
         theaterSign = new Sign("THEATER", Color.black, new Color(255, 95, 31),20, 405, 140);
+        waffles = new Building(220,130, 100, 70, new Color(235, 221, 131), new Color (36, 34, 21));
+        waffleSign = new Sign("WAFFLES", Color.black, new Color(224,231,34), 18, 225, 145);
         //window = new Window(155, 50, Color.yellow);
+        
+        // the waffle house has found its new host
         //                  x start, x end, y start, y end, woidth, height, x gap, y gap, color
         window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
         hotelWindow = new Window (30, 155,   130,      185,    10,     10,    20,   25,     Color.yellow);            
@@ -78,6 +82,15 @@ public class LineUp extends JComponent
         
         Thread t9 = new Thread(build1);
         t9.start();
+        
+        Thread t10 = new Thread(build2);
+        t10.start();
+        
+        Thread t11 = new Thread(waffles);
+        t11.start();
+        
+        Thread t12 = new Thread(waffleSign);
+        t12.start();
     }
     
     public void paintComponent (Graphics g){
@@ -103,6 +116,9 @@ public class LineUp extends JComponent
         hotel.draw(page);
         hotelSign.draw(page);
         hotelWindow.draw(page);
+        
+       waffles.draw(page);
+        waffleSign.draw(page);
         
         car.draw(page);
         

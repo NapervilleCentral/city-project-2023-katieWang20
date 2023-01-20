@@ -57,6 +57,7 @@ public class Window extends JComponent implements Runnable
         for (int x = xStart, y = yStart; y <= yEnd; ) {
             page.fillRect(x, y, w, h);
             x+=xGap;
+            //run();
             // gaps in between windows
             
             if (x >=  xEnd){
