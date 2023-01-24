@@ -19,7 +19,7 @@ public class LineUp extends JComponent
     private Background road, greenGround, roadLines;
     private Sky sky;
     private Building hotel, build1, build2, waffles, theater;
-    private Window window, hotelWindow;
+    private Window window, hotelWindow, waffleWindow, theaterWindow;
     Sign theaterSign, hotelSign, waffleSign;
     
     
@@ -43,7 +43,7 @@ public class LineUp extends JComponent
         window = new Window(  155,   230,    50,     185,     10,     10,    15,   20,     Color.yellow);
         hotelWindow = new Window (30, 155,   130,      185,    10,     10,    20,   25,     Color.yellow);            
         //x+=15;
-        
+        waffleWindow = new Window (225, 300, 110, 170,          30, 25,         50,  30, Color.orange); 
         
         hotelSign = new Sign("HOTEL", Color.black, new Color(255, 16, 240),  35, 35, 120);
         Thread t0 = new Thread(hotelSign);
@@ -91,6 +91,9 @@ public class LineUp extends JComponent
         
         Thread t12 = new Thread(waffleSign);
         t12.start();
+        
+        Thread t13 = new Thread(waffleWindow);
+        t13.start();
     }
     
     public void paintComponent (Graphics g){
@@ -119,6 +122,7 @@ public class LineUp extends JComponent
         
        waffles.draw(page);
         waffleSign.draw(page);
+        waffleWindow.draw(page);
         
         car.draw(page);
         

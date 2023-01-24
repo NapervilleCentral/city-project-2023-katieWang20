@@ -16,7 +16,7 @@
     
 public class Window extends JComponent implements Runnable
 {
-    private Color myColor;
+    private Color myColor, color;
     private int w, h;
     private Random rand = new Random();
     private int xStart, xEnd, yStart, yEnd;
@@ -34,6 +34,7 @@ public class Window extends JComponent implements Runnable
         this.h = h;
         this.xGap = xGap;
         this.yGap = yGap;
+        color = userColor;
         
     }
     
@@ -75,7 +76,7 @@ public class Window extends JComponent implements Runnable
         int running = 0;
         while (true){
             if (running % 2 == 0 )
-                myColor = Color.yellow;
+                myColor = color;
                 
             else
                 myColor = new Color (200, 200, 200);
