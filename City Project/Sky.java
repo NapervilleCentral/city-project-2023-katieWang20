@@ -60,7 +60,7 @@ public class Sky extends JComponent implements Runnable
                 
         
             }else{
-                skyColor = new Color(137, 207, 240);;
+                skyColor = new Color(137, 207, 240);
             }
             
             try{
